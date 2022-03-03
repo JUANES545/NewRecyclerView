@@ -2,11 +2,31 @@ package com.example.newrecyclerview
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.newrecyclerview.adapter.SuperHeroAdapter
+import com.example.newrecyclerview.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        initRecyclerView()
+    }
+
+    private fun initRecyclerView(){
+        with(binding){
+            recyclerSuperhero.layoutManager = LinearLayoutManager(this@MainActivity)
+            recyclerSuperhero.adapter = SuperHeroAdapter(SuperHeroProvider.superheroList
+            ) { onItemSelected(it) }
+        }
+    }
+
+    private fun onItemSelected(superHero: SuperHero){
+        Toast.makeText(this, superHero.superhero, Toast.LENGTH_SHORT).show()
     }
 }
