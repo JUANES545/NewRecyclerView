@@ -37,4 +37,16 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_real_name"
         tools:text="DC" />
 
+    <Button
+        android:id="@+id/btn_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/red"
+        android:text="@string/delete"
+        app:layout_constraintStart_toEndOf="@id/iv_superhero">
+
+    </Button>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
